@@ -3,26 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的视频</title>
+    <title>视频演示 | Sinnoal</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background: #000;
+            background: #0a0a0f;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            flex-direction: column;
+        }
+        .player-wrapper {
+            background: #12121a;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            max-width: 1000px;
+            width: 90%;
+        }
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 20px;
+            background: #181822;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f57; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #28ca41; }
+        .title-bar {
+            flex: 1;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 0.5px;
         }
         video {
-            max-width: 100%;
-            max-height: 100vh;
+            display: block;
+            width: 100%;
+            max-height: 70vh;
+            background: #000;
+        }
+        .player-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: #181822;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .footer-info {
+            color: #aaa;
+            font-size: 13px;
+        }
+        .footer-info strong {
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .footer-badge {
+            background: rgba(255, 255, 255, 0.08);
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .page-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
-    <video controls autoplay muted playsinline>
-        <source src="https://cropgif.net/videos/1779090774621-92652074-8587-4f46-a907-dfabf7336d6a.mp4">
-        你的浏览器不支持播放此视频。
-    </video>
+
+    <div class="player-wrapper">
+        <!-- 窗口标题栏 -->
+        <div class="player-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title-bar">Sinnoal 视频演示</span>
+        </div>
+
+        <!-- 视频播放器 -->
+        <video controls playsinline>
+            <source src="https://cropgif.net/videos/1779090774621-92652074-8587-4f46-a907-dfabf7336d6a.mp4" type="video/mp4">
+            你的浏览器不支持播放此视频。
+        </video>
+
+        <!-- 底部信息栏 -->
+        <div class="player-footer">
+            <span class="footer-info">© 2025 <strong>Sinnoal</strong>. All rights reserved.</span>
+            <span class="footer-badge">内部演示</span>
+        </div>
+    </div>
+
+    <!-- 页面底部额外水印 -->
+    <div class="page-footer">Powered by Sinnoal</div>
+
 </body>
 </html>
